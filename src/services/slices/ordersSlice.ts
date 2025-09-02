@@ -1,4 +1,4 @@
-import { getOrderByNumberApi, getOrdersApi } from '@api';
+import { getOrderByNumberApi, getOrdersApi } from '../../utils/burger-api';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TOrder } from '@utils-types';
 
@@ -15,7 +15,7 @@ export const getUserOrderByNumber = createAsyncThunk(
   }
 );
 
-interface userOrdersState {
+export interface userOrdersState {
   orders: TOrder[];
   currentOrder: TOrder | null;
   isLoading: boolean;
@@ -41,6 +41,7 @@ const ordersSlice = createSlice({
     builder
       .addCase(getUserOrdersHistory.pending, (state) => {
         state.isLoading = true;
+        state.error = null;
       })
       .addCase(getUserOrdersHistory.rejected, (state, action) => {
         state.isLoading = false;
@@ -59,6 +60,7 @@ const ordersSlice = createSlice({
       .addCase(getUserOrderByNumber.rejected, (state, action) => {
         state.error = action.error.message as string;
         state.currentOrder = null;
+        state.isLoading = false;
       })
       .addCase(getUserOrderByNumber.fulfilled, (state, action) => {
         state.error = null;
