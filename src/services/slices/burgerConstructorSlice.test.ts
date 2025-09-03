@@ -4,7 +4,8 @@ import burgerConstructorSlice, {
   moveDownIngredient,
   moveUpIngredient,
   removeIngredient,
-  setConstructorItems
+  setConstructorItems,
+  initialState
 } from './burgerConstructorSlice';
 
 describe('constructor test', () => {
@@ -55,17 +56,6 @@ describe('constructor test', () => {
     }
   ];
   test('add ingredient', () => {
-    const initialState = {
-      constructorItems: {
-        bun: null,
-        ingredients: []
-      },
-      orderRequest: false,
-      orderModalData: null,
-      orderError: null,
-      isLoading: false
-    };
-
     const newState = burgerConstructorSlice(
       initialState,
       setConstructorItems(mockIngredient[0])

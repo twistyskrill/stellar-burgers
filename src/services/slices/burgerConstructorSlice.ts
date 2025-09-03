@@ -31,7 +31,7 @@ interface BurgerConstructorState {
   isLoading: boolean;
 }
 
-const initialState: BurgerConstructorState = {
+export const initialState: BurgerConstructorState = {
   constructorItems: {
     bun: null,
     ingredients: []

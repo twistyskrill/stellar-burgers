@@ -20,7 +20,7 @@ export interface TUserState {
   loginUserRequest: boolean;
 }
 
-const initialState: TUserState = {
+export const initialState: TUserState = {
   isAuthChecked: false,
   isAuthenticated: false,
   user: null,

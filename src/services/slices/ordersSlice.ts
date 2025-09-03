@@ -22,7 +22,7 @@ export interface userOrdersState {
   error: string | null;
 }
 
-const initialState: userOrdersState = {
+export const initialState: userOrdersState = {
   orders: [],
   currentOrder: null,
   isLoading: false,

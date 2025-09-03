@@ -1,15 +1,5 @@
 import { expect, test } from '@jest/globals';
-import feedSlice, { getFeedsAll } from './feedSlice';
-
-const initialState = {
-  feed: {
-    orders: [],
-    total: 0,
-    totalToday: 0
-  },
-  isLoading: false,
-  error: null
-};
+import feedSlice, { getFeedsAll, initialState } from './feedSlice';
 
 const testOrders = {
   orders: [

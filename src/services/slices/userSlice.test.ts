@@ -6,17 +6,9 @@ import userSlice, {
   logoutUser,
   userApi,
   updateUser,
-  TUserState
+  initialState
 } from './userSlice';
 import { TLoginData, TRegisterData } from '@api';
-
-const initialState: TUserState = {
-  isAuthChecked: false,
-  isAuthenticated: false,
-  user: null,
-  loginUserError: null,
-  loginUserRequest: false
-};
 
 const testUser = {
   success: true,

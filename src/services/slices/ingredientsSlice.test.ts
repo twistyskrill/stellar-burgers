@@ -1,18 +1,8 @@
 import { expect, test } from '@jest/globals';
 import ingredientsSlice, {
   getIngredients,
-  IngredientsState
+  initialState
 } from './ingredientsSlice';
-
-export const initialState: IngredientsState = {
-  buns: [],
-  mains: [],
-  sauces: [],
-  ingredients: [],
-  selectedIngredient: null,
-  isLoading: false,
-  hasError: false
-};
 
 const mockIngredient = [
   {

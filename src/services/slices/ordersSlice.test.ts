@@ -2,15 +2,8 @@ import { expect, test } from '@jest/globals';
 import ordersSlice, {
   getUserOrderByNumber,
   getUserOrdersHistory,
-  userOrdersState
+  initialState
 } from './ordersSlice';
-
-const initialState: userOrdersState = {
-  orders: [],
-  currentOrder: null,
-  isLoading: false,
-  error: null
-};
 
 const mockOrders = [
   {
