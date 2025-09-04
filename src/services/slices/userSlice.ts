@@ -6,12 +6,13 @@ import {
   TLoginData,
   TRegisterData,
   updateUserApi
-} from '@api';
+} from '../../utils/burger-api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { TUser } from '@utils-types';
 import { deleteCookie, getCookie, setCookie } from '../../utils/cookie';
+import { stat } from 'fs';
 
-interface TUserState {
+export interface TUserState {
   isAuthChecked: boolean;
   isAuthenticated: boolean;
   user: null | TUser;
@@ -19,7 +20,7 @@ interface TUserState {
   loginUserRequest: boolean;
 }
 
-const initialState: TUserState = {
+export const initialState: TUserState = {
   isAuthChecked: false,
   isAuthenticated: false,
   user: null,
@@ -105,6 +106,7 @@ const userSlice = createSlice({
       .addCase(registerUser.pending, (state) => {
         state.loginUserRequest = true;
         state.user = null;
+        state.loginUserError = null;
         state.isAuthenticated = false;
       })
       .addCase(registerUser.rejected, (state, action) => {
